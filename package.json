@@ -1,0 +1,27 @@
+{
+  "name": "moe-prime",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@lit-app/state": "^0.8.4",
+    "@spectrum-web-components/progress-bar": "^0.38.0",
+    "@unocss/reset": "^0.55.7",
+    "@vaadin/router": "^1.7.5",
+    "animate.css": "^4.1.1",
+    "lit": "^2.7.6"
+  },
+  "devDependencies": {
+    "@iconify-json/simple-icons": "^1.1.70",
+    "state": "link:@types/lit-element/state",
+    "typescript": "^5.0.2",
+    "unocss": "^0.55.7",
+    "vite": "^4.4.5",
+    "vite-plugin-inspect": "^0.7.38"
+  }
+}
