@@ -5,6 +5,7 @@ import '@unocss/reset/normalize.css'
 import state from './state'
 import './components/button'
 import './containers/game'
+import './containers/result'
 
 @customElement('m-app')
 export class App extends LitElement {
@@ -18,14 +19,16 @@ export class App extends LitElement {
       <m-button sty="normal" @click="${this._startHardGame}">▶ HARD</m-button>
     `
 
-    const game = html`
-      <m-game></m-game>
-    `
+    const game = html`<m-game></m-game>`
+    const result = html`<m-result></m-result>`
 
     let content
     switch (state.currentPage) {
       case 1:
         content = game
+        break
+      case 2:
+        content = result
         break
       default:
         content = home
@@ -52,7 +55,11 @@ export class App extends LitElement {
 
   static styles = css`
     @unocss-placeholder
-  `
+    `
+
+  /*_debug() {
+    state.currentPage = 2
+  }*/
 
   _startGame() {
     state.currentPage = 1
