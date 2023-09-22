@@ -72,6 +72,7 @@ export class Game extends LitElement {
     }
 
     if (getRandomInt(1)) {
+      state.gameItemLevel = 1;
       while (true) {
         tmp = state.currentNumber * numbers[getRandomInt(rand)]
         if (state.currentNumber >= c2 && getRandomInt(2)) {
@@ -82,6 +83,7 @@ export class Game extends LitElement {
         } else break
       }
     } else {
+      state.gameItemLevel = 0
       while (state.currentNumber < c2) {
         tmp = state.currentNumber * numbers[getRandomInt(rand)]
         if (state.currentNumber >= c3 && getRandomInt(2)) {
@@ -102,13 +104,24 @@ export class Game extends LitElement {
   _divide(e: Event) {
     let divisor = Number((e.target as Element).textContent!)
     if (state.currentNumber % divisor) {
-      state.gameScore -= 10
+      state.gameScore -= 40
     } else {
       state.currentNumber /= divisor
+
       if (state.currentNumber === 1) {
+        let item: number
+        if (state.gameItemLevel) {
+          item = getRandomInt(3)
+          state.gameItems[item]++
+          state.gameScore += 600
+        } else {
+          item = getRandomInt(3) + 3
+          state.gameItems[item]++
+          state.gameScore += 400
+        }
+
         setTimeout(() => {
           this._updateNumber()
-          state.gameScore += 300
         }, 300)
       }
     }

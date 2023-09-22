@@ -20,6 +20,12 @@ export class Button extends LitElement {
       </div>
     `
 
+    const close = html`
+      <div button w="12" h="12" rounded="full">
+        <div text="2xl" i-fa6-solid="x" />
+      </div>
+    `
+
     const number = html`
       <div button text="4xl" w="17.5" h="17.5" gap-x="1" mx="1" my="2" rounded="lg">
         <slot></slot>
@@ -48,6 +54,9 @@ export class Button extends LitElement {
       case 'help':
         return help
         break
+      case 'close':
+        return close
+        break
       case 'number':
         return number
         break
@@ -58,7 +67,7 @@ export class Button extends LitElement {
         return shareMastodon
         break
       case 'share-misskey':
-        return  shareMisskey
+        return shareMisskey
         break
       default:
         return normal

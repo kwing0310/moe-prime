@@ -6,6 +6,7 @@ import state from './state'
 import './components/button'
 import './containers/game'
 import './containers/result'
+import './containers/help'
 
 @customElement('m-app')
 export class App extends LitElement {
@@ -13,7 +14,7 @@ export class App extends LitElement {
 
   render() {
     const home = html`
-      <m-button sty="help" float="right" mt="6"></m-button>
+      <m-button sty="help" @click="${this._openHelp}" float="right" mt="6"></m-button>
       <div h="1/2"></div>
       <m-button sty="normal" @click="${this._startNormalGame}">▶ NORMAL</m-button>
       <m-button sty="normal" @click="${this._startHardGame}">▶ HARD</m-button>
@@ -21,6 +22,7 @@ export class App extends LitElement {
 
     const game = html`<m-game></m-game>`
     const result = html`<m-result></m-result>`
+    const help = html`<m-help></m-help>`
 
     let content
     switch (state.currentPage) {
@@ -29,6 +31,9 @@ export class App extends LitElement {
         break
       case 2:
         content = result
+        break
+      case 3:
+        content = help
         break
       default:
         content = home
@@ -59,12 +64,20 @@ export class App extends LitElement {
 
   /*_debug() {
     state.currentPage = 2
-  }*/
+    }*/
+
+  _openHelp() {
+    state.currentPage = 3
+  }
 
   _startGame() {
     state.currentPage = 1
     state.startOverlayDisplay = 'block'
     state.progressOpacity = 0
+    state.gameTime = 90
+    state.gameScore = 0
+    state.gameItems = [0, 0, 0, 0, 0, 0]
+    state.currentNumber = 0
 
     state.startTime = 3
     const beforeStartTimer = setInterval(() => state.startTime--, 1000)
@@ -73,10 +86,10 @@ export class App extends LitElement {
       state.startOverlayDisplay = 'none'
       state.progressOpacity = 1
 
-      state.gameTime = 90
       const afterStartTimer = setInterval(() => state.gameTime--, 1000)
       setTimeout(() => {
         clearInterval(afterStartTimer)
+        state.currentNumber = 0
         state.endOverlayDisplay = 'block'
         state.progressOpacity = 0
         setTimeout(() => {

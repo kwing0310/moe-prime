@@ -10,6 +10,7 @@ class MoeState extends State {
   @property({ value: 90 }) gameTime!: number
   @property({ value: 0 }) gameScore!: number
   @property({ value: [0, 0, 0, 0, 0, 0] }) gameItems!: Array<number>
+  @property({ value: 0 }) gameItemLevel!: number
   @property({ value: null }) currentNumber!: number 
 }
 

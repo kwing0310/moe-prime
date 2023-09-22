@@ -6,7 +6,7 @@ import ViteInspector from 'vite-plugin-inspect'
 export default defineConfig({
   root: './src',
   build: {
-    outDir: './dist'
+    outDir: '../dist'
   },
   plugins: [
     UnoCSS({ 

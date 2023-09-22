@@ -20,12 +20,13 @@ export class Result extends LitElement {
         <div my="3">
           <div text="center xl">SHARE</div>
           <div my="3" flex flex-start justify-center gap="5">
-            <m-button sty="share-x"></m-button>
-            <m-button sty="share-mastodon"></m-button>
-            <m-button sty="share-misskey"></m-button>
+            <m-button @click="${this._shareX}" sty="share-x"></m-button>
+            <m-button @click="${this._shareMastodon}" sty="share-mastodon"></m-button>
+            <m-button @click="${this._shareMisskey}" sty="share-misskey"></m-button>
           </div>
         </div>
         <m-button mx="6" sty="normal" @click="${this._retry}">▶ RETRY</m-button>
+      </div>
     `
   }
 
@@ -35,6 +36,18 @@ export class Result extends LitElement {
 
   _retry() {
     state.currentPage = 0
+  }
+
+  _shareX() {
+    window.open('https://twitter.com/intent/tweet?text=%23萌え萌え素因数分解 (β) であそんだよ！　Level: '+state.gameLevel+'　Score: '+state.gameScore+'&url='+encodeURI('https://moe-prime.vercel.app'))
+  }
+
+  _shareMastodon() {
+    window.open('https://donshare.net/share.html?text=%23萌え萌え素因数分解 (β) であそんだよ！　Level: '+state.gameLevel+'　Score: '+state.gameScore+'&url='+encodeURI('https://moe-prime.vercel.app'))
+  }
+
+  _shareMisskey() {
+    window.open('https://misskeyshare.link/share.html?text=%23萌え萌え素因数分解 (β) であそんだよ！　Level: '+state.gameLevel+'　Score: '+state.gameScore+'&url='+encodeURI('https://moe-prime.vercel.app'))
   }
 }
 
