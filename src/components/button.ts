@@ -34,13 +34,13 @@ export class Button extends LitElement {
 
     const shareX = html`
       <div button bg="black" w="9" h="9" rounded="lg">
-        <div text="white 22px" i-fa6-brands="x-twitter" />
+        <div text="white 22px" i-simple-icons="x" />
       </div>
     `
 
     const shareMastodon = html`
       <div button bg="#6364FF" w="9" h="9" rounded="lg">
-        <div text="white 22px" i-fa6-brands="mastodon" />
+        <div text="white 22px" i-simple-icons="mastodon" />
       </div>
     `
 

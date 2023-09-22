@@ -60,11 +60,7 @@ export class App extends LitElement {
 
   static styles = css`
     @unocss-placeholder
-    `
-
-  /*_debug() {
-    state.currentPage = 2
-    }*/
+  `
 
   _openHelp() {
     state.currentPage = 3
@@ -80,24 +76,28 @@ export class App extends LitElement {
     state.currentNumber = 0
 
     state.startTime = 3
-    const beforeStartTimer = setInterval(() => state.startTime--, 1000)
-    setTimeout(() => {
-      clearInterval(beforeStartTimer)
-      state.startOverlayDisplay = 'none'
-      state.progressOpacity = 1
+    const beforeStartTimer = setInterval(() => {
+      state.startTime--
+      if (state.startTime === 0) {
+        clearInterval(beforeStartTimer)
+        state.startOverlayDisplay = 'none'
+        state.progressOpacity = 1
 
-      const afterStartTimer = setInterval(() => state.gameTime--, 1000)
-      setTimeout(() => {
-        clearInterval(afterStartTimer)
-        state.currentNumber = 0
-        state.endOverlayDisplay = 'block'
-        state.progressOpacity = 0
-        setTimeout(() => {
-          state.endOverlayDisplay = 'none'
-          state.currentPage = 2
-        }, 1500)
-      }, 90000)
-    }, 3000)
+        const afterStartTimer = setInterval(() => {
+          state.gameTime--
+          if (state.gameTime === 0) {
+            clearInterval(afterStartTimer)
+            state.currentNumber = 0
+            state.endOverlayDisplay = 'block'
+            state.progressOpacity = 0
+            setTimeout(() => {
+              state.endOverlayDisplay = 'none'
+              state.currentPage = 2
+            }, 1500)
+          }
+        }, 1000)
+      }
+    }, 1000)
   }
 
   _startNormalGame() {

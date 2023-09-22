@@ -103,8 +103,8 @@ export class Game extends LitElement {
 
   _divide(e: Event) {
     let divisor = Number((e.target as Element).textContent!)
-    if (state.currentNumber % divisor) {
-      state.gameScore -= 40
+    if (state.currentNumber % divisor) { 
+      if (state.gameScore >= 80) state.gameScore -= 80
     } else {
       state.currentNumber /= divisor
 

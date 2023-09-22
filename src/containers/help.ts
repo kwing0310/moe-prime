@@ -24,7 +24,7 @@ export class Help extends LitElement {
         <h3>クレジット</h3>
         <p>作者: <a href="chillout.chat/@wing">からすま</a></p>
         <p>このゲームはまだベータ版です。バグや不具合がひそんでいる可能性が大いにあります。</p>
-        <p><a href="https://github.com/kwing0310/moe-prime">ソースコード</a> (v0.1)</p>
+        <p><a href="https://github.com/kwing0310/moe-prime">ソースコード</a> (v0.2)</p>
       </div>
     `
   }

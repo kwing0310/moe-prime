@@ -16,7 +16,7 @@ export class ProgressBar extends LitElement {
 
     return html`
       <div bg="light" w="full" h="2" mt="4.5" position="relative" rounded="full" overflow="hidden">
-        <p style="background: ${bgcolor}; width: ${this.progress / 90 * 100}%" h="full" m="0" rounded="full" right="0" position="absolute"></p>
+        <p style="background: ${bgcolor}; width: ${this.progress / 90 * 100}%" block h="full" m="0" rounded="full" right="0" position="absolute"></p>
       </div>
     `
   }

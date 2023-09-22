@@ -25,6 +25,9 @@ dependencies:
     version: 2.8.0
 
 devDependencies:
+  '@iconify-json/fa6-solid':
+    specifier: ^1.1.15
+    version: 1.1.15
   '@iconify-json/simple-icons':
     specifier: ^1.1.70
     version: 1.1.70
@@ -262,6 +265,12 @@ packages:
     requiresBuild: true
     dev: true
     optional: true
+
+  /@iconify-json/fa6-solid@1.1.15:
+    resolution: {integrity: sha512-RMiUSSdnxD4BLDW2QBskqr/+i1/6xhZK+E3sq24URnB3fSQUCWvyhNN3ZnU3RMjWaMVNxPy9pEXr1i/8s63GRQ==}
+    dependencies:
+      '@iconify/types': 2.0.0
+    dev: true
 
   /@iconify-json/simple-icons@1.1.70:
     resolution: {integrity: sha512-YZoHn180s0PELhjlMMTMVG8FxQOfP3AIn7P6KNV8xONzt/GwqMkYQ92DNYZbvSyQ4NhRajm27YkaOeSwNusr7A==}

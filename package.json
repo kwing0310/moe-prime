@@ -17,6 +17,7 @@
     "lit": "^2.7.6"
   },
   "devDependencies": {
+    "@iconify-json/fa6-solid": "^1.1.15",
     "@iconify-json/simple-icons": "^1.1.70",
     "state": "link:@types/lit-element/state",
     "typescript": "^5.0.2",
